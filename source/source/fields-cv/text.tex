@@ -1,0 +1,17 @@
+\DeclareOptionX<cvtxt>{plaintext}{\def\plaintext{#1}}
+\ExecuteOptionsX<cvtxt>{
+  plaintext=text
+}
+
+\newcommand*\CVPlainTextField[1][]{%
+  \begingroup
+  \setkeys{cvtxt}{#1}
+  \rightminipageonly{%
+  \begin{minipage}{\linewidth}
+  \color{bodytxt}
+  \linespread{1.3}\selectfont % adjust line spacing
+  \plaintext
+  \end{minipage}
+  }
+  \endgroup
+}
